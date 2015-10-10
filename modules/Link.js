@@ -51,7 +51,7 @@ class Link extends Component {
     activeClassName: string,
     onlyActiveOnIndex: bool.isRequired,
     onClick: func,
-    component: React.PropTypes.element,
+    component: React.PropTypes.element
   }
 
   static defaultProps = {
@@ -99,7 +99,7 @@ class Link extends Component {
     props.onClick = (e) => this.handleClick(e)
 
     // Is target active ?
-    let isActive = false;
+    let isActive = false
 
     // Ignore if rendered outside the context of history, simplifies unit testing.
     const { history } = this.context
@@ -117,15 +117,15 @@ class Link extends Component {
           if (activeStyle)
             props.style = { ...props.style, ...activeStyle }
             
-          isActive = true;
+          isActive = true
         }
       }
     }
 
     return this.props.component?
-      React.cloneElement(this.props.component, {active: isActive, ...props})
+      React.cloneElement(this.props.component, { active: isActive, ...props })
       :
-      <a {...props} />;
+      <a {...props} />
   }
 
 }
